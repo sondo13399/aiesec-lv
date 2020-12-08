@@ -22,15 +22,6 @@
     font-weight: bold;
     line-height: 55px;
 }
-.products
-{   
-    height: auto;
-    background-color:white;
-    box-shadow:3px 3px -3px grey;
-    -moz-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0 0 10px  rgba(0,0,0,0.6);
-    border-radius: 5px;
-}
 .swipe 
 {
     overflow: hidden;
