@@ -16,7 +16,7 @@
 .banner {
   width: 100%;
   height: auto;
-  height: 100vh;
+  padding-bottom: 2em;
   background-image: url("img/banner.jpg");
   background-size: cover;
   background-position: center;
@@ -61,7 +61,7 @@
 .banner-info {
   width: 50%;
   font-weight: bold;
-  padding-top: 130px;
+  padding-top: 30px;
   float: left;
   color: #fff;
 }
@@ -85,7 +85,7 @@
 }
 .navbar ul li {
   list-style: none;
-  margin: 0 20px;
+  margin: 0 6px;
   display: inline-block;
   position: relative;
 }
@@ -117,13 +117,14 @@
 }
 
 .section_heading {
-  font-size: 35px;
-  color: white;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
   font-weight: 2000;
 }
 
 .section_heading h1 {
   text-align: center;
+  font-size:1.5em;
 }
 
 .card-details {
