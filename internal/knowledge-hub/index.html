@@ -1,7 +1,7 @@
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <title>ECB Latvia</title>
+    <title>Knowledge Hub - AIESEC in Latvia</title>
     <link rel="stylesheet" href="style.css"></link>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -179,18 +179,61 @@
             <div class="query-box">
                 <div class="left"></div>
                 <div class="right">
-                    <h2>Questions?</h2>
-                    <br>
-                    <input type="text" class="field" placeholder="Your Name">
-                    <input type="text" class="field" placeholder="Your Email">
-                    
-                    <textarea placeholder="Message" class="field"></textarea>
-                   <span class="form-submit"><a href="#">Send</a></span> 
+                   <form id="myForm">
+                        <label>Full Name</label>
+                        <br/>
+                        <input name="full_name" />
+                        <br/>
+                        <label>Email</label>
+                        <br/>
+                        <input name="email" />
+                        <br/>
+                        <label>Age</label>
+                        <br/>
+                        <input type="radio" id="age" name="age" value="18-35" /> 18-35<br/>
+                        <input type="radio" id="age" name="age" value="35+" /> 35+<br/>
+                        <br/>
+                        <label>Message</label>
+                        <br/>
+                        <textarea name="message">
+                        </textarea>
+                        <br/>
+                        <br/>
+                      </form>
+                      <button onclick="SubForm()">Submit</button>
                 </div>
             </div>
         </div>
 
+<script>
+    const spreadsheetId = '1lH_j55aMY8sAQDbYaSoesXYYED8SvK3JZJ0nx_PDASM';
+    
+    const _ranges = 'A2:B3';
+    
+    function batchGetValues(callback) {
+  // [START sheets_batch_get_values]
+      var ranges = [
+        // Range names ...
+      ];
+      // [START_EXCLUDE silent]
+      ranges = _ranges;
+      // [END_EXCLUDE]
+      gapi.client.sheets.spreadsheets.values.batchGet({
+         spreadsheetId: spreadsheetId,
+         ranges: ranges
+      }).then((response) => {
+        var result = response.result;
+        console.log(`${result.valueRanges.length} ranges retrieved.`);
+        // [START_EXCLUDE silent]
+        callback(response);
+        // [END_EXCLUDE]
+      });
+      // [END sheets_batch_get_values]
+    }
+    
+    
 
+    </script>
 
         
  
@@ -258,6 +301,21 @@
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="tilt.jquery.js"></script>
+<script>
+      function SubForm (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/14573/',
+        type:'post',
+        data:$("#myForm").serializeArray(),
+        success: function(){
+          alert("Form Data Submitted :)")
+        },
+        error: function(){
+          alert("There was an error :(")
+        }
+    });
+}
+</script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
     <script type="text/javascript">
