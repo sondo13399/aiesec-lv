@@ -117,7 +117,9 @@
                     // SUCCESS
                     res.json().then(data=>{
                         //const yourData = data
-                        var ifrm = document.createElement("iframe");             
+                        var ifrm = document.createElement("iframe");     
+                        console.log(data);
+                        console.log(data.link);
                         ifrm.setAttribute("src", data.link);
                         ifrm.style.width = "1280px";
                         ifrm.style.height = "749px";          
