@@ -116,12 +116,12 @@
                 if (res.status === 200){
                     // SUCCESS
                     res.json().then(data=>{
-                        //console.log(data);
+                        console.log(data);
                         data.data.forEach(item=>{
                         var ifrm = document.createElement("iframe");     
                         ifrm.setAttribute("src", item.link);
-                        ifrm.style.width = "1280px";
-                        ifrm.style.height = "749px";          
+                        ifrm.style.width = "640px";
+                        ifrm.style.height = "350px";          
                         document.getElementById("recentPost").appendChild(ifrm);     
                     }).catch(err => console.log(err))
                     });
