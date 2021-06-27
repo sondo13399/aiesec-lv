@@ -108,14 +108,14 @@
         </div>
         
         <script>
-        function recentPost(){
+        
             fetch("https://api.apispreadsheets.com/data/14585/").then(res=>{
                 if (res.status === 200){
                     // SUCCESS
                     res.json().then(data=>{
                         //const yourData = data
-                        var ifrm = document.createElement("IFRAME");             
-                        ifrm.setAttribute("src", data.link);
+                        var ifrm = document.createElement("iframe");             
+                        ifrm.setAttribute("src", ${data.link});
                         ifrm.style.width = "1280px";
                         ifrm.style.height = "749px";          
                         document.getElementById("recentPost").appendChild(ifrm);     
@@ -125,7 +125,7 @@
                     // ERROR
                 }
             })
-        }
+        
         </script>
     
         <div style="height: 150px;margin-top:30px; ">
