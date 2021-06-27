@@ -116,8 +116,7 @@
                 if (res.status === 200){
                     // SUCCESS
                     res.json().then(data=>{
-                        const yourData = data;
-                        yourData.forEach(item=>{
+                        data.forEach(item=>{
                         var ifrm = document.createElement("iframe");     
                         ifrm.setAttribute("src", item.link);
                         ifrm.style.width = "1280px";
