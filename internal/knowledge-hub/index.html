@@ -85,7 +85,7 @@
             </div>
         </div>
     <div class="container-fluid">
-        <div class=" slider" id="recentPost" style="max-height:350px;">            
+        <div class="slider" id="recentPost" style="max-height:350px;">            
                 <!--  
                   <div class="slide">
                     <a href="https://docs.google.com/presentation/d/1oAuKMH_AH0i1vWxDs2t__7JLROP3-fJoycQ7z-zFrTE/edit?usp=sharing"> <img  src="https://source.unsplash.com/random/300x180" alt="" style="border:0;"> </a>
@@ -122,7 +122,7 @@
                         ifrm.setAttribute("src", item.link);
                         ifrm.style.width = "640px";
                         ifrm.style.height = "350px";          
-                        document.getElementById("recentPost").appendChild(ifrm);     
+                        document.getElementByClassName("slick-track").appendChild(ifrm);     
                     }).catch(err => console.log(err))
                     });
                 }
