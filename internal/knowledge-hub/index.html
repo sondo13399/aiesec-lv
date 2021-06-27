@@ -85,13 +85,12 @@
             </div>
         </div>
     <div class="container-fluid">
-        <div class=" slider" style="max-height:350px;">            
+        <div class=" slider" id="recentPost" style="max-height:350px;">            
                 <!--  
                   <div class="slide">
                     <a href="https://docs.google.com/presentation/d/1oAuKMH_AH0i1vWxDs2t__7JLROP3-fJoycQ7z-zFrTE/edit?usp=sharing"> <img  src="https://source.unsplash.com/random/300x180" alt="" style="border:0;"> </a>
                 </div> 
-               -->
-               
+  
                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRGarZSaPFKAg5KGGeBiC7Nx8Q7Oh66sYARDDAgv4d1MFnQakQ1Xbgxis23kwm4zvTc8Z9wah5VMBhd/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQtck2uSlnhn4Jxg0gO31DCWuXiyd7EBG0D15117FmxR5Xy4h2cBYt19m90gkvTs55fLnV9m0njPcFC/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQBrG6wim24GRzYgpp9348UVCYTna-PjoOSG7pJ7PH6tKjeA8e558ZcELlvt_Ac39ulF4J1ljZG_tEp/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -102,9 +101,32 @@
                 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRSY3tTGKHZicvIAOzl8vfjiIup1G2v4I9MMjY7RiMABP6pomNK7DLALnzKO5LZNkRvJary76VCKF01/embed?start=false&loop=false&delayms=60000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS1uqgIuENQSbG1S9ssQvl2h4AqVHYyThilKE-SbdA1bcUNPHi2A2KSsNuBJlUAv1iJiMRhS8Kn_qap/embed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                 
+               -->
+             
         
                 </div>  
         </div>
+        
+        <script>
+        function recentPost(){
+            fetch("https://api.apispreadsheets.com/data/14585/").then(res=>{
+                if (res.status === 200){
+                    // SUCCESS
+                    res.json().then(data=>{
+                        //const yourData = data
+                        var ifrm = document.createElement("IFRAME");             
+                        ifrm.setAttribute("src", data);
+                        ifrm.style.width = "640px";
+                        ifrm.style.height = "480px";            // Insert text
+                        document.getElementById("recentPost").appendChild(ifrm);     // Append <p> to <div> with id="myDIV"
+                    }).catch(err => console.log(err))
+                }
+                else{
+                    // ERROR
+                }
+            })
+        }
+        </script>
     
         <div style="height: 150px;margin-top:30px; ">
             <div  class="section_heading mx-auto py-5 " id="mcteam" style="text-align: center;">
@@ -198,39 +220,7 @@
                       <button onclick="SubForm()">Submit</button>
                 </div>
             </div>
-        </div>
-
-<script>
-    const spreadsheetId = '1lH_j55aMY8sAQDbYaSoesXYYED8SvK3JZJ0nx_PDASM';
-    
-    const _ranges = 'A2:B3';
-    
-    function batchGetValues(callback) {
-  // [START sheets_batch_get_values]
-      var ranges = [
-        // Range names ...
-      ];
-      // [START_EXCLUDE silent]
-      ranges = _ranges;
-      // [END_EXCLUDE]
-      gapi.client.sheets.spreadsheets.values.batchGet({
-         spreadsheetId: spreadsheetId,
-         ranges: ranges
-      }).then((response) => {
-        var result = response.result;
-        console.log(`${result.valueRanges.length} ranges retrieved.`);
-        // [START_EXCLUDE silent]
-        callback(response);
-        // [END_EXCLUDE]
-      });
-      // [END sheets_batch_get_values]
-    }
-    
-    
-
-    </script>
-
-        
+        </div>        
  
 
         <div class="container-fluid mt-5" style="background-color:#77353D; padding-top: 1em">
