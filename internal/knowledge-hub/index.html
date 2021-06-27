@@ -116,11 +116,10 @@
                 if (res.status === 200){
                     // SUCCESS
                     res.json().then(data=>{
-                        //const yourData = data
+                        const yourData = data;
+                        yourData.forEach(item=>{
                         var ifrm = document.createElement("iframe");     
-                        console.log(data);
-                        console.log(data.link);
-                        ifrm.setAttribute("src", data.link);
+                        ifrm.setAttribute("src", item.link);
                         ifrm.style.width = "1280px";
                         ifrm.style.height = "749px";          
                         document.getElementById("recentPost").appendChild(ifrm);     
@@ -129,6 +128,7 @@
                 else{
                     // ERROR
                 }
+            })
             })
         
         </script>
