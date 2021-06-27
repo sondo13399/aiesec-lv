@@ -115,10 +115,10 @@
                     res.json().then(data=>{
                         //const yourData = data
                         var ifrm = document.createElement("IFRAME");             
-                        ifrm.setAttribute("src", data);
-                        ifrm.style.width = "640px";
-                        ifrm.style.height = "480px";            // Insert text
-                        document.getElementById("recentPost").appendChild(ifrm);     // Append <p> to <div> with id="myDIV"
+                        ifrm.setAttribute("src", data.link);
+                        ifrm.style.width = "1280px";
+                        ifrm.style.height = "749px";          
+                        document.getElementById("recentPost").appendChild(ifrm);     
                     }).catch(err => console.log(err))
                 }
                 else{
